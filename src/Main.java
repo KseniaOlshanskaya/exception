@@ -2,6 +2,7 @@ public class Main {
     public static void main(String[]args) {
         ProductCatalog newCatalog = new ProductCatalog();
         Product product1 = new Product(1254, "Молоко", 50, "Напиток");
+        Product product2 = new Product(1274, "Молоко", 50, "Напиток");
 
         try {
             newCatalog.createProduct(product1);
@@ -10,5 +11,6 @@ public class Main {
             System.out.println(exc.getMessage());
         }
 
+        newCatalog.updateProduct(product2);
     }
 }

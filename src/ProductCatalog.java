@@ -28,4 +28,23 @@ public class ProductCatalog {
 
     }
 
+    public void updateProduct(Product product) throws ProductNotFound{
+        boolean result = false;
+        Product foundProduct = null;
+        for(Product pr:this.listOfProducts) {
+            if (product.getID() == pr.getID()) {
+                result = true;
+                foundProduct = pr;
+                break;
+            }
+        }
+        if(result) {
+            this.listOfProducts.remove(foundProduct);
+            this.listOfProducts.add(product);
+        }
+        else {
+            throw new ProductNotFound("Продукта с таким идентификатором не существует. ");
+        }
+    }
+
 }
