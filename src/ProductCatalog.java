@@ -50,6 +50,17 @@ public class ProductCatalog {
         }
     }
 
-
-
+    public void deleteProduct(long id){
+        boolean result = false;
+        for(Product pr : this.listOfProducts) {
+            if(pr.getID() == id) {
+                result = true;
+                this.listOfProducts.remove(pr);
+                break;
+            }
+        }
+        if(!result) {
+            throw new ProductNotFound("Продукт с идентификатором "+ id + " не найден.");
+        }
+    }
 }

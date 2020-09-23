@@ -18,5 +18,7 @@ public class Main {
         catch(ProductNotValid exc) {
             System.out.println(exc.getMessage());
         }
+
+        newCatalog.deleteProduct(product2.getID());
     }
 }
