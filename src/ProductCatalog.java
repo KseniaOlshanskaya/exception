@@ -28,7 +28,7 @@ public class ProductCatalog {
 
     }
 
-    public void updateProduct(Product product) throws ProductNotFound{
+    public void updateProduct(Product product) throws ProductNotValid {
         boolean result = false;
         Product foundProduct = null;
         for(Product pr:this.listOfProducts) {
@@ -39,6 +39,9 @@ public class ProductCatalog {
             }
         }
         if(result) {
+            if(product.getName() == null){
+                throw new ProductNotValid("Продукт без названия. ");
+            }
             this.listOfProducts.remove(foundProduct);
             this.listOfProducts.add(product);
         }
@@ -46,5 +49,7 @@ public class ProductCatalog {
             throw new ProductNotFound("Продукта с таким идентификатором не существует. ");
         }
     }
+
+
 
 }
